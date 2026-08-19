@@ -1,22 +1,39 @@
 # CodeVault 💻
 
-A personal DSA progress tracker built around **Striver's A2Z DSA Sheet**.
+**CodeVault** is a personal DSA command center built around **Striver's A2Z DSA Sheet**.
 
-## Current version
-- Dashboard with A2Z progress, streaks and weekly goals
-- 17-step Striver A2Z roadmap
-- Problem search and difficulty filters
-- Solved / unsolved progress interaction
-- Consistency heatmap
-- Difficulty analytics
-- Responsive dark UI
+## Features
+- 📊 Dashboard with A2Z progress, goals and streaks
+- 🗺️ 17-step Striver A2Z roadmap
+- ✅ Problem status: Not started / Attempted / Review / Solved
+- 🔎 Search and difficulty filters
+- 🔥 Activity heatmap and streak tracking
+- 📈 Difficulty analytics
+- 🎨 Dark / light workspace settings
+- 🔐 Firebase email/password + Google authentication
+- ☁️ Firestore cloud sync per user
+- 💾 Local progress mode before sign-in
+- 📱 Responsive UI
 
 ## Stack
-React + Vite + Lucide React
+React + Vite + Lucide React + Firebase Auth + Firestore
 
-## Roadmap
-1. Connect the problem database to the real Striver A2Z sheet
-2. Import existing GitHub/LeetCode progress
-3. Add notes, attempts and revision dates
-4. Add Supabase authentication + cloud sync
-5. Deploy on Vercel
+## Firebase setup
+1. Create/keep the Firebase project `codevault-dc8ac`.
+2. Enable **Authentication → Email/Password** and optionally **Google**.
+3. Create a **Firestore Database**.
+4. Deploy the included `firestore.rules` so each user can only access their own progress.
+
+## Run locally
+```bash
+npm install
+npm run dev
+```
+
+## Build
+```bash
+npm run build
+```
+
+## Deployment
+The app is ready for Vercel or Firebase Hosting. `firebase.json` contains Hosting + Firestore rules configuration.
