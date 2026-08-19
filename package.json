@@ -1,13 +1,11 @@
 {
   "name": "codevault",
   "private": true,
-  "version": "2.0.0",
+  "version": "2.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "predev": "node scripts/sync-a2z.mjs",
     "build": "vite build",
-    "prebuild": "node scripts/sync-a2z.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
