@@ -6,14 +6,27 @@ import {
 } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
+const requiredEnv = [
+  'VITE_FIREBASE_API_KEY',
+  'VITE_FIREBASE_AUTH_DOMAIN',
+  'VITE_FIREBASE_PROJECT_ID',
+  'VITE_FIREBASE_STORAGE_BUCKET',
+  'VITE_FIREBASE_MESSAGING_SENDER_ID',
+  'VITE_FIREBASE_APP_ID',
+];
+const missingEnv = requiredEnv.filter((name) => !import.meta.env[name]);
+if (missingEnv.length) {
+  throw new Error(`Missing Firebase environment variables: ${missingEnv.join(', ')}`);
+}
+
 const firebaseConfig = {
-  apiKey: 'AIzaSyCguj1eDGdctoWCoJl8cJStrAs4UVfmQYw',
-  authDomain: 'codevault-dc8ac.firebaseapp.com',
-  projectId: 'codevault-dc8ac',
-  storageBucket: 'codevault-dc8ac.firebasestorage.app',
-  messagingSenderId: '692689628979',
-  appId: '1:692689628979:web:968d3c5c10ae401a86d846',
-  measurementId: 'G-DMJ474ZC07',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
